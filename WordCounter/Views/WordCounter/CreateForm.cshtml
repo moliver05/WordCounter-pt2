@@ -1,4 +1,9 @@
-<h1>Play the Word Counter!</h1>
+@{
+Layout = "_Layout.cshtml">
+}
+
+<div class="jumbotron"><h1>Play the Word Counter!</h1></div>
+<div class="container">
 <form action="/word" method="post">
   <label for="new-word">Add Words/Sentence</label>
   <input id="new-word" name="new-word" type="text">
@@ -6,3 +11,4 @@
   <input id="new-result" name="new-result" type="text">
   <button type="submit">Submit</button>
 </form>
+</div>

@@ -8,19 +8,19 @@ namespace WordCounter.Controllers
 public class RepeatCounterController : Controller
 {
 
-  [HttpGet("/word")]
+  [HttpGet("/wordcounter")]
   public ActionResult Index()
   {
     return View();
 
   }
-  [HttpGet("/word/new")]
+  [HttpGet("/wordcounter")]
   public ActionResult CreateForm()
   {
     return View();
   }
 
-  [HttpPost("/word")]
+  [HttpPost("/wordcounter/new")]
   public ActionResult Create()
   {
   RepeatCounter newWord = new RepeatCounter(Request.Form["new-word"], Request.Form["new-result"]);
