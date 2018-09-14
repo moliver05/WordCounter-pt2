@@ -36,6 +36,16 @@ namespace WordCounter.Models
       return _instances;
     }
 
+    public void Save()
+    {
+      _instances.Add(this);
+    }
+
+    public static void ClearAll()
+    {
+      _instances.Clear();
+    }
+
 // Split the words
     public static string[] SplitTheText(string text)
     {

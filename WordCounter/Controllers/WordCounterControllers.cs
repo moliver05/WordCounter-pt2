@@ -8,26 +8,28 @@ namespace WordCounter.Controllers
 public class WordController : Controller
 {
 
-  [HttpGet("/word")]
+  [HttpGet("/wordcounter")]
   public ActionResult Index()
   {
     List<Word> allWords = Word.GetAll();
     return View(allWords);
 
   }
-  [HttpGet("/word/new")]
+  [HttpGet("/wordcounter/new")]
   public ActionResult CreateForm()
   {
     return View();
   }
 
-  [HttpPost("/word")]
+  [HttpPost("/wordcounter")]
   public ActionResult Create()
   {
     Word newWord = new Word(Request.Form["new-word"]);
     List<Word> allWords = Word.GetAll();
+    newWord.Save()
     return View("Index", allWords);
   }
+
 
  //  [HttpPost("/word")]
  //  public ActionResult Act()
