@@ -59,7 +59,7 @@ namespace WordCounter.Models
       int matches = 0;
       foreach(string userInput in splitText)
     {
-      if (userInput.Equals(result))
+      if (userInput == result)
       {
          matches ++;
       }

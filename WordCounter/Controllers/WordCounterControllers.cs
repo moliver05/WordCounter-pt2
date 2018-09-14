@@ -5,22 +5,22 @@ using WordCounter.Models;
 
 namespace WordCounter.Controllers
 {
-public class RepeatCounterController : Controller
+public class WordCounterController : Controller
 {
 
-  [HttpGet("/wordcounter")]
+  [HttpGet("/word")]
   public ActionResult Index()
   {
     return View();
 
   }
-  [HttpGet("/wordcounter")]
+  [HttpGet("/word/new")]
   public ActionResult CreateForm()
   {
     return View();
   }
 
-  [HttpPost("/wordcounter/new")]
+  [HttpPost("/word")]
   public ActionResult Create()
   {
   RepeatCounter newWord = new RepeatCounter(Request.Form["new-word"], Request.Form["new-result"]);
