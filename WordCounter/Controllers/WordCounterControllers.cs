@@ -24,10 +24,23 @@ public class WordController : Controller
   [HttpPost("/word")]
   public ActionResult Create()
   {
-      Word newWord = new Word(Request.Form["new-word"]);
-      newWord.Save();
-      List<Word> allWords = Word.GetAll();
-      return View("Index", allWords);
+    Word newWord = new Word(Request.Form["new-word"]);
+    List<Word> allWords = Word.GetAll();
+    return View("Index", allWords);
   }
- }
+
+ //  [HttpPost("/word")]
+ //  public ActionResult Act()
+ //  {
+ //    Text splitText = text.Split(' ');
+ //    int matches = 0;
+ //    foreach(string text in splitText)
+ //  {
+ //    if (text.Equals(input))
+ //    {
+ //       matches ++;
+ //    }
+ //    return View("Index", allWords)
+ //  }
+ // }
 }

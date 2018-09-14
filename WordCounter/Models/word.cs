@@ -31,17 +31,19 @@ namespace WordCounter.Models
 
     }
 
-    public static List<Place> GetAll()
+    public static List<Word> GetAll()
     {
       return _instances;
     }
 
+// Split the words
     public static string[] SplitTheText(string text)
     {
     string[] splitText = text.Split(' ');
     return splitText;
     }
 
+// Loop function
     public static int CountTheWords(string input, string[] splitText)
     {
       int matches = 0;
