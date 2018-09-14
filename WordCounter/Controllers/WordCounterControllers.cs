@@ -30,19 +30,18 @@ public class WordController : Controller
     return View("Index", allWords);
   }
 
+  [HttpPost("/wordcounter/delete")]
+  public ActionResult DeleteAll()
+  {
+    Word.ClearAll()
+    return View();
+  }
 
- //  [HttpPost("/word")]
- //  public ActionResult Act()
- //  {
- //    Text splitText = text.Split(' ');
- //    int matches = 0;
- //    foreach(string text in splitText)
- //  {
- //    if (text.Equals(input))
- //    {
- //       matches ++;
- //    }
- //    return View("Index", allWords)
- //  }
- // }
+  [HttpPost("/wordcounter")]
+  public ActionResult Act()
+  {
+  Word.CountTheWords(string input, string[] splitText)
+  return View();
+
+  }
 }
