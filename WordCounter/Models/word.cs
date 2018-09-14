@@ -7,7 +7,7 @@ namespace WordCounter.Models
   {
     private string _text;
     private string _input;
-    private static List<Word> word = new Word
+    private static List<Word> _instances = new List<Word>{};
 
     public void SetPrivateInput(string input)
     {
@@ -29,6 +29,11 @@ namespace WordCounter.Models
     {
       return _text;
 
+    }
+
+    public static List<Place> GetAll()
+    {
+      return _instances;
     }
 
     public static string[] SplitTheText(string text)
