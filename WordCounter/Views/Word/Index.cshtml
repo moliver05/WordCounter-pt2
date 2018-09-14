@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+<h1>List of Words:</h1>
+<ul>
+@foreach(var word in Model)
+{
+<h3>WordCounter Result</h3>
+  <p>User Input: "@Model.GetUserInput()"</p>
+  <br>
+  <p>Result: "@Model.GetUserResult()"</p>
+  <br>
+  <p>Matches: "@Model.GetUserInput()" was found @Model.GetCountMatch() times.</p>
+</ul>
+<a href="/word/new">Play Again?</a>

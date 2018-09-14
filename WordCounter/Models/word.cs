@@ -5,61 +5,61 @@ namespace WordCounter.Models
 {
   public class RepeatCounter
   {
-    private string _text;
-    private string _input;
-    private static List<Word> _instances = new List<Word>{};
+    private string _userInput;
+    private string _result;
+    private int _countMatch;
 
-    public void SetPrivateInput(string input)
+    public RepeatCounter(string userInput, string result)
     {
-      _input = input;
+      _userInput = userInput;
+      _result = result;
+    }
+    public void SetCountMatch(int countMatch)
+    {
+      _countMatch = countMatch;
     }
 
-    public string GetPrivateInput()
+    public int GetCountMatch()
     {
-      return _input;
+      return _countMatch;
+    }
+
+    public void SetUserResult(string result)
+    {
+      _result = result;
+    }
+
+    public string GetUserResult()
+    {
+      return _result;
 
     }
 
-    public void SetPrivateText(string text)
+    public void SetUserInput(string userInput)
     {
-      _text = text;
+      _userInput = userInput;
     }
 
-    public string GetPrivateText()
+    public string GetUserInput()
     {
-      return _text;
+      return _userInput;
 
-    }
-
-    public static List<Word> GetAll()
-    {
-      return _instances;
-    }
-
-    public void Save()
-    {
-      _instances.Add(this);
-    }
-
-    public static void ClearAll()
-    {
-      _instances.Clear();
     }
 
 // Split the words
-    public static string[] SplitTheText(string text)
+    public static string[] SplitTheText(string userInput)
     {
-    string[] splitText = text.Split(' ');
-    return splitText;
+    string[] wordsInput = userInput.Split(' ');
+    return wordsInput;
     }
 
 // Loop function
-    public static int CountTheWords(string input, string[] splitText)
+    public static int CountTheWords(string result, string[] splitText)
     {
       int matches = 0;
-      foreach(string text in splitText)
+      foreach(string userInput in splitText)
     {
-      if (text.Equals(input))
+      if (userInput.Equals(result))
       {
          matches ++;
       }

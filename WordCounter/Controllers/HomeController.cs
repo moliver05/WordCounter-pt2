@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace WordCounter.Controller
+namespace WordCounter.Controllers
 {
     public class HomeController : Controller
     {

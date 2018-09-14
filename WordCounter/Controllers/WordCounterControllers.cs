@@ -1,47 +1,38 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using WordDealership.Models;
+using WordCounter.Models;
 
 namespace WordCounter.Controllers
 {
-public class WordController : Controller
+public class RepeatCounterController : Controller
 {
 
-  [HttpGet("/wordcounter")]
+  [HttpGet("/word")]
   public ActionResult Index()
   {
-    List<Word> allWords = Word.GetAll();
-    return View(allWords);
+    return View();
 
   }
-  [HttpGet("/wordcounter/new")]
+  [HttpGet("/word/new")]
   public ActionResult CreateForm()
   {
     return View();
   }
 
-  [HttpPost("/wordcounter")]
+  [HttpPost("/word")]
   public ActionResult Create()
   {
-    Word newWord = new Word(Request.Form["new-word"]);
-    List<Word> allWords = Word.GetAll();
-    newWord.Save()
-    return View("Index", allWords);
-  }
+  RepeatCounter newWord = new RepeatCounter(Request.Form["new-word"], Request.Form["new-result"]);
 
-  [HttpPost("/wordcounter/delete")]
-  public ActionResult DeleteAll()
-  {
-    Word.ClearAll()
-    return View();
-  }
+//split the words
+  string[] splitArray = RepeatCounter.SplitTheText(newWord.GetUserInput());
 
-  [HttpPost("/wordcounter")]
-  public ActionResult Act()
-  {
-  Word.CountTheWords(string input, string[] splitText)
-  return View();
+//count the matching/loop
+  int countIt = RepeatCounter.CountTheWords(newWord.GetUserResult(), splitArray);
 
+    newWord.SetCountMatch(countIt);
+    return View("Index", newWord);
   }
+ }
 }
