@@ -49,17 +49,18 @@ namespace WordCounter.Models
 // Split the words
     public static string[] SplitTheText(string userInput)
     {
-    string[] wordsInput = userInput.Split(' ');
+    char[] DeleteExtras= new char[] {',','.','!','?',':',';',' '};
+    string[] wordsInput = userInput.Split(DeleteExtras);
     return wordsInput;
     }
 
 // Loop function
-    public static int CountTheWords(string result, string[] splitText)
+    public static int CountTheWords(string wordSearch, string[] result)
     {
       int matches = 0;
-      foreach(string userInput in splitText)
+      foreach(string userInput in result)
     {
-      if (userInput == result)
+      if (userInput == wordSearch)
       {
          matches ++;
       }

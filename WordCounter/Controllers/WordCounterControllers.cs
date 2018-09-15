@@ -29,7 +29,7 @@ public class WordCounterController : Controller
   string[] splitArray = RepeatCounter.SplitTheText(newWord.GetUserInput());
 
 //count the matching/loop
-  int countIt = RepeatCounter.CountTheWords(newWord.GetUserResult(), splitArray);
+  int countIt = RepeatCounter.CountTheWords(newWord.GetUserInput(), splitArray);
 
     newWord.SetCountMatch(countIt);
     return View("Index", newWord);
