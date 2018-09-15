@@ -22,5 +22,35 @@ namespace WordCounter.Tests
       //Assert
       Assert.AreEqual(count, result);
     }
+
+    [TestMethod]
+    public void wordSearch_Returns_True()
+    {
+    // Arrange
+    string wordSearch = "hungry";
+    string givenSentence = "I am always hungry."
+    int result = 1;
+
+    // Act
+    int actualResult = RepeatCounter.CountTheWords(wordSearch, userInput);
+
+    // Assert
+    Assert.AreEqual(result, actualResult);
+    }
+
+    [TestMethod]
+    public void wordSearchNeeds_MatchingWord_True()
+    {
+      // Arrange
+      string wordSearch = "hungry";
+      string givenSentence = "I am full";
+      int result = 0;
+
+      // Act
+      int actualResult = RepeatCounter.CountTheWords(wordSearch, userInput);
+
+      // Assert
+      Assert.AreNotEqual(result, actualResult);
+    }
   }
 }
